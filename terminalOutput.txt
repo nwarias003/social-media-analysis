@@ -1,0 +1,105 @@
+PS C:\JAVA_HOME\social-media-analysis> mvn clean compile exec:java                             
+>> 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.example:social-media-analysis >------------------
+[INFO] Building social-media-analysis 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ social-media-analysis ---
+[INFO] Deleting C:\JAVA_HOME\social-media-analysis\target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ social-media-analysis ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\JAVA_HOME\social-media-analysis\src\main\resources
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ social-media-analysis ---
+[INFO] Recompiling the module because of changed source code.
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 4 source files with javac [debug target 1.8] to target\classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO]
+[INFO] --- exec:3.0.0:java (default-cli) @ social-media-analysis ---
+Generated 10 fake users.
+Generated 0 filtered fake posts.
+Filtered Posts:
+Generated word frequency dictionary with filters.
+Word Frequencies:
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - Saving WordCloud to: wordcloud_output.png
+Word cloud generated: wordcloud_output.png
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.541 s
+[INFO] Finished at: 2024-11-17T01:08:50-10:00
+[INFO] ------------------------------------------------------------------------
+PS C:\JAVA_HOME\social-media-analysis> mvn clean compile exec:java
+>>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.example:social-media-analysis >------------------
+[INFO] Building social-media-analysis 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ social-media-analysis ---
+[INFO] Deleting C:\JAVA_HOME\social-media-analysis\target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ social-media-analysis ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\JAVA_HOME\social-media-analysis\src\main\resources
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ social-media-analysis ---
+[INFO] Recompiling the module because of changed source code.
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 4 source files with javac [debug target 1.8] to target\classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO]
+[INFO] --- exec:3.0.0:java (default-cli) @ social-media-analysis ---
+Generated 10 fake users.
+Generated 5 filtered fake posts.
+Filtered Posts:
+- Kumo word cloud by Chloe Nguyen Java
+- Kumo word cloud by Chloe Nguyen Java
+- amazing post by Chloe Nguyen Java
+- exciting news by Chloe Nguyen Java
+- Kumo word cloud by Chloe Nguyen Java
+Generated word frequency dictionary with filters.
+Word Frequencies:
+cloud: 3
+news: 1
+nguyen: 5
+amazing: 1
+java: 5
+post: 1
+by: 5
+exciting: 1
+chloe: 5
+word: 3
+kumo: 3
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: nguyen (1/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: java (2/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: by (3/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: chloe (4/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: cloud (5/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: word (6/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: kumo (7/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: news (8/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: amazing (9/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: post (10/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - placed: exciting (11/11)
+[Task_3.main()] INFO com.kennycason.kumo.WordCloud - Saving WordCloud to: wordcloud_output.png
+Word cloud generated: wordcloud_output.png
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.709 s
+[INFO] Finished at: 2024-11-17T01:09:06-10:00
+[INFO] ------------------------------------------------------------------------

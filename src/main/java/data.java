@@ -31,51 +31,59 @@ public class Data {
         return users;
     }
 
-    // Generate fake posts with filtering by user attributes and content
-    public static List<Post> generateFakePosts(List<User> users, int maxNumberOfPosts, Map<String, String> criteria, Set<String> includeKeywords, Set<String> excludeKeywords) {
-        List<Post> posts = new ArrayList<>();
+   // Generate fake posts with filtering by user attributes and content
+public static List<Post> generateFakePosts(List<User> users, int maxNumberOfPosts, Map<String, String> criteria, Set<String> includeKeywords, Set<String> excludeKeywords) {
+    List<Post> posts = new ArrayList<>();
 
-        // Filter users based on criteria
-        List<User> filteredUsers = users.stream().filter(user -> {
-            boolean matches = true;
-            if (criteria.containsKey("age")) {
-                matches &= user.age >= Integer.parseInt(criteria.get("age"));
+    // Filter users based on criteria
+    List<User> filteredUsers = users.stream().filter(user -> {
+        boolean matches = true;
+        if (criteria.containsKey("age")) {
+            matches &= user.age >= Integer.parseInt(criteria.get("age"));
+        }
+        if (criteria.containsKey("gender")) {
+            matches &= user.gender.equalsIgnoreCase(criteria.get("gender"));
+        }
+        if (criteria.containsKey("location")) {
+            matches &= user.location.equalsIgnoreCase(criteria.get("location"));
+        }
+        return matches;
+    }).collect(Collectors.toList());
+
+    for (User user : filteredUsers) {
+        int postCount = random.nextInt(maxNumberOfPosts) + 1; // Random number of posts per user.
+        for (int i = 0; i < postCount; i++) {
+            // Create random content with variation
+            String[] randomPhrases = {"amazing post", "exciting news", "Java programming", "Kumo word cloud"};
+            String content = randomPhrases[random.nextInt(randomPhrases.length)] + " by " + user.realName;
+
+            // Ensure includeKeywords appear in content
+            if (!includeKeywords.isEmpty()) {
+                content += " " + includeKeywords.iterator().next(); // Add the first includeKeyword
             }
-            if (criteria.containsKey("gender")) {
-                matches &= user.gender.equalsIgnoreCase(criteria.get("gender"));
+
+            // Include or exclude posts based on keywords
+            boolean includePost = true;
+            if (!includeKeywords.isEmpty()) {
+                includePost = includeKeywords.stream().anyMatch(content::contains);
             }
-            if (criteria.containsKey("location")) {
-                matches &= user.location.equalsIgnoreCase(criteria.get("location"));
+            if (excludeKeywords.stream().anyMatch(content::contains)) {
+                includePost = false;
             }
-            return matches;
-        }).collect(Collectors.toList());
 
-        for (User user : filteredUsers) {
-            int postCount = random.nextInt(maxNumberOfPosts) + 1; // Random number of posts per user.
-            for (int i = 0; i < postCount; i++) {
-                String content = "Sample post content by " + user.realName + " #" + (i + 1);
-
-                // Include or exclude posts based on keywords
-                boolean includePost = true;
-                if (!includeKeywords.isEmpty()) {
-                    includePost = includeKeywords.stream().anyMatch(content::contains);
-                }
-                if (excludeKeywords.stream().anyMatch(content::contains)) {
-                    includePost = false;
-                }
-
-                if (includePost) {
-                    String timestamp = "2024-11-13 12:00:00"; // Simulated timestamp.
-                    Post post = new Post(postIdCounter++, content, user, timestamp);
-                    user.posts.add(post); // Associate post with the user.
-                    posts.add(post); // Add post to the global list.
-                }
+            if (includePost) {
+                String timestamp = "2024-11-13 12:00:00"; // Simulated timestamp.
+                Post post = new Post(postIdCounter++, content, user, timestamp);
+                user.posts.add(post); // Associate post with the user.
+                posts.add(post); // Add post to the global list.
             }
         }
-
-        System.out.println("Generated " + posts.size() + " filtered fake posts.");
-        return posts;
     }
+
+    System.out.println("Generated " + posts.size() + " filtered fake posts."); // Debug output
+    return posts;
+}
+
 
     // Generate word frequency dictionary with filters
     public static Map<String, Integer> generateWordFrequency(List<Post> posts, Set<String> includeKeywords, Set<String> excludeKeywords) {
