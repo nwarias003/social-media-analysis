@@ -17,4 +17,8 @@ public class Post {
         this.seenBy = new ArrayList<>();         
         
     }
+    @Override
+    public String toString() { 
+        return content; 
+    }
 }
