@@ -9,6 +9,10 @@ public class User {
     public String workplace;
     public String location;
     public List<Post> posts; // Declare posts field
+    public List<Connection> connections; 
+    public List<Post> postsAuthored; 
+    public List<Post> postsRead; 
+    public List<Comment> comments; 
 
     public User(String userName, String realName, int age, String gender, String workplace, String location) {
         this.userName = userName;
@@ -18,5 +22,9 @@ public class User {
         this.workplace = workplace;
         this.location = location;
         this.posts = new ArrayList<>(); // Initialize posts
+        this.connections = new ArrayList<>(); 
+        this.postsAuthored = new ArrayList<>(); 
+        this.postsRead = new ArrayList<>(); 
+        this.comments = new ArrayList<>(); 
     }
 }
