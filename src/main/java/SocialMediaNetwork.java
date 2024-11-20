@@ -1,5 +1,10 @@
-import java.util.stream.Collectors; 
+import org.jgrapht.graph.DefaultEdge; 
+import org.jgrapht.graph.DirectedMultigraph; 
+import org.jgrapht.io.ComponentNameProvider; 
+import org.jgrapht.io.GraphMLExporter; 
 import java.util.*; 
+import java.util.stream.Collectors;
+import java.io.FileWriter;
 
 public class SocialMediaNetwork { 
    
@@ -64,5 +69,12 @@ public class SocialMediaNetwork {
          .limit(limit) 
          .collect(Collectors.toList()); 
       } // Other methods for different analyses... 
+   public void exportGraphToGraphML(DirectedMultigraph<Object, DefaultEdge> graph, String filename) throws Exception { 
+   
+      ComponentNameProvider<Object> vertexIdProvider = new IntegerComponentNameProvider<>(); 
+      ComponentNameProvider<Object> vertexLabelProvider = Object::toString; 
+      GraphMLExporter<Object, DefaultEdge> exporter = new GraphMLExporter<>(vertexIdProvider, vertexLabelProvider, null, null); 
+      exporter.exportGraph(graph, new FileWriter(filename));
    } 
+} 
    
