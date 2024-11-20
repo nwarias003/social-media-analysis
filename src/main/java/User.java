@@ -27,4 +27,8 @@ public class User {
         this.postsRead = new ArrayList<>(); 
         this.comments = new ArrayList<>(); 
     }
+    @Override 
+    public String toString() { 
+        return username;
+    }
 }
